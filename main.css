@@ -37,3 +37,16 @@ input[type="submit"] {
     font-size: 60px;
     padding: 25px;
 }
+
+.selectize-input {
+    width: 40vw;
+}
+
+.search-box {
+    width: 40vw;
+    margin: 0 auto;
+}
+
+.selectize-control.multi .selectize-input > div {
+    background-color: pink;
+}

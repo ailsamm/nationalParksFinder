@@ -1,18 +1,19 @@
 'use-strict';
 
-const url = 'https://developer.nps.gov/api/v1/parks?stateCode='
+const url = 'http://crossorigin.me/https://developer.nps.gov/api/v1/parks?stateCode='
 const apiKey = 'rOSgoEBaYhbpTlSU80U74n6e3eTdZDPAO6p39MlA';
 
 function processResults(states){
     const searchUrl = url + states;
-    const options = {
-        headers: new Headers({
-          "X-Api-Key": apiKey,
-          "Access-Control-Allow-Origin": "*"})
-      };
-    
-      fetch(searchUrl, options)
-        .then(results => console.log(results));
+
+    fetch(searchUrl, {
+    method: 'GET',
+    headers: {
+        "X-Api-Key": apiKey,
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"}})
+    .then(results => console.log(results));
+
 }   
 
 function watchForm(){
@@ -23,20 +24,15 @@ function watchForm(){
         processResults(states);
     });
 }
-/* $(function() {
-	$('.select').selectize({
-        delimiter: ',',
-        persist: false,
-        placeholder: "something",
+
+$(document).ready(function(){
+    $('#search').selectize({
         maxItems: 5,
-        options: ["first", "second", "third"],
-        create: function(input) {
-            return {
-                value: input,
-                text: input
-            }
-        }
+        placeholder: "Enter state(s) here",
+        delimiter: ',',
+        persist: false
     });
-}); */
+});
+
 
 $(watchForm);
