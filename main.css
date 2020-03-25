@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Bungee+Shade|Pacifico|Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sen:700|Abril+Fatface|Bungee+Shade|Pacifico|Raleway&display=swap');
 
 * {
     box-sizing: border-box;
@@ -64,10 +64,27 @@ input[type="submit"] {
 }
 
 .result {
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     text-align: left;
     width: 60%;
     background-color: rgba(191, 202, 180, 0.5);
     border-radius: 5px;
+}
+
+.park-description {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.park-phone {
+    margin-left: 20px;
+}
+
+.park-email,
+.park-phone {
+    text-decoration: none;
+    font-family: Sen, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: black;
 }

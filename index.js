@@ -1,30 +1,56 @@
 'use-strict';
 
-const url = 'https://developer.nps.gov/api/v1/parks?stateCode='
+const urlPrefix = 'https://cors-anywhere.herokuapp.com/';
+const url = 'https://developer.nps.gov/api/v1/parks?'
 const apiKey = 'rOSgoEBaYhbpTlSU80U74n6e3eTdZDPAO6p39MlA';
 
 function processResults(states){
-    const stateString = formatStates(states);
-    const searchUrl = url + stateString;
+
+    const stateString = formatParams(states);
+    const searchUrl = urlPrefix + url + stateString;
     console.log(searchUrl); 
 
     fetch(searchUrl, {
-    method: 'GET',
+    method: 'GET',  
     headers: {
-        "X-Api-Key": apiKey,
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "no-cors"}})
-    .then(results => console.log(results));
+        "X-Api-Key": apiKey}})
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => handleResults(responseJson.data))
+        .catch(err => {
+            $('#js-error-message').text(`Something went wrong: ${err.message}`);
+        });
+    }   
 
-}   
+function handleResults(parks) {
+    for (let i = 0; i < parks.length; i++){
+        console.log(parks[i]);
+        $(".search-results").append(createResultHtml(parks[i]));
+    }
+}
 
-function formatStates(states) {
+function createResultHtml(park) {
+    return `<div class="result">\
+    <h3><a class="park-link" href="${park.url}" target="_blank">${park.fullName}, ${park.states}</a></h3>\
+    <p class="park-description"> ${park.description}</p>
+    <a class="park-email" href="mailto:${park.contacts.emailAddresses[0].emailAddress}">EMAIL</a><a class="park-phone" href="tel:${park.contacts.phoneNumbers[0].phoneNumber}">CALL</a>
+</div>`;
+}
+
+function formatParams(states, limit=10) {
     // create correct parameter format for passing to endpoint URL
     let stateString = "";
+
     for (let i=0; i < states.length; i++){
         stateString += states[i] + ",";
     }
-    return stateString.slice(0,-1)
+
+    const paramString = "stateCode=" + stateString.slice(0,-1) + "&limit=" + limit;
+    return paramString;
 }
 
 function watchForm(){
