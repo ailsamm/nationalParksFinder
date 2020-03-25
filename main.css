@@ -21,7 +21,7 @@ label {
 }
 
 input[type="text"],
-button[type="submit"] {
+input[type="submit"] {
     font-size: 20px;
     border-radius: 5px;
     padding: 5px 10px;
