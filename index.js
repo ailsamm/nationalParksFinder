@@ -11,7 +11,7 @@ function processResults(states){
           "Access-Control-Allow-Origin": "*"})
       };
     
-      fetch(url, options)
+      fetch(searchUrl, options)
         .then(results => console.log(results));
 }   
 
