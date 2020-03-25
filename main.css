@@ -12,6 +12,10 @@ body {
     background-size: cover;
 }
 
+.hidden {
+    display: none;
+}
+
 label {
     font-size: 30px;
 }
