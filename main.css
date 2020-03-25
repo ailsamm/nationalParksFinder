@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Bungee+Shade|Pacifico|Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+label {
+    font-size: 30px;
+}
+
+::placeholder {
+    font-style: italic;
+}
+
+input[type="text"],
+button[type="submit"] {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 20px;
+}
+
+.title {
+    font-family: "Bungee Shade", Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    padding: 25px;
+}

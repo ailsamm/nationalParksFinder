@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Parks Finder</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
     <header>
-        <h1>National Parks Finder</h1>
+        <h1 class="title">National Parks Finder</h1>
     </header>
     <main>
         <form>
-            <label for="states">Please enter a state/states to see the National Parks located there.</label>
-            <input type="text" value="" id="states" required>
+            <label for="states">Please enter a state/states to see the National Parks located there:</label><br>
+            <input type="text" value="" id="states" placeholder="Enter state(s) here" required>
+            <button type="submit">Go</button>
         </form>
         <section class="search-results"></section>
 
