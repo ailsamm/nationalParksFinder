@@ -50,3 +50,24 @@ input[type="submit"] {
 .item {
     background-color: pink;
 }
+
+.park-link:link {
+    color:rgb(12, 75, 4);
+}
+
+.park-link:visited{
+    color:rgb(12, 75, 4);
+}
+
+.result * {
+    text-align: left;
+}
+
+.result {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    width: 60%;
+    background-color: rgba(191, 202, 180, 0.5);
+    border-radius: 5px;
+}
