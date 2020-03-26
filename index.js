@@ -4,16 +4,17 @@ const urlPrefix = 'https://cors-anywhere.herokuapp.com/';
 const url = 'https://developer.nps.gov/api/v1/parks?'
 const apiKey = 'rOSgoEBaYhbpTlSU80U74n6e3eTdZDPAO6p39MlA';
 
-function processResults(states){
+function processResults(states, maxResults){
 
-    const stateString = formatParams(states);
+    const stateString = formatParams(states, maxResults);
     const searchUrl = urlPrefix + url + stateString;
     console.log(searchUrl); 
 
     fetch(searchUrl, {
     method: 'GET',  
     headers: {
-        "X-Api-Key": apiKey}})
+        "X-Api-Key": apiKey,
+        "Access-Control-Allow-Origin": "*"}})
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -36,21 +37,28 @@ function handleResults(parks) {
     }
 
     for (let i = 0; i < parks.length; i++){
+        console.log(parks[i]);
         $(".search-results").append(createResultHtml(parks[i]));
     }
 }
 
 function createResultHtml(park) {
-    return `<div class="result">\
-    <h3><a class="park-link" href="${park.url}" target="_blank">${park.fullName}</a></h3>\
-    <h4 class="park-state"><span class="park-state-title">STATE(S): </span>${park.states}</h4>\
-    <p class="park-description"> ${park.description}</p>\
-    <a class="park-email" href="mailto:${park.contacts.emailAddresses[0].emailAddress}"><i class="icon fas fa-at"></i>EMAIL</a>\
-    <a class="park-phone" href="tel:${park.contacts.phoneNumbers[0].phoneNumber}"><i class="icon fas fa-phone"></i>CALL</a>\
-</div>`;
+    return `<article class="result">\
+        <h3><a class="park-link" href="${park.url}" target="_blank">${park.fullName}</a></h3>\
+        <h4 class="park-state"><span class="park-state-title">STATE(S): </span>${park.states}</h4>\
+        <section class="park-info">\
+            <p class="park-description"> ${park.description}</p>\
+            <img class="park-image" src="${park.images[0].url}" alt="${park.images[0].alt}">\
+        </section>\
+        <section park-contact-info>\
+            <a class="park-email" href="mailto:${park.contacts.emailAddresses[0].emailAddress}"><i class="icon fas fa-at"></i>EMAIL</a>\
+            <a class="park-phone" href="tel:${park.contacts.phoneNumbers[0].phoneNumber}"><i class="icon fas fa-phone"></i>CALL</a>\
+        </section>\
+    </article`;
 }
 
-function formatParams(states, limit=10) {
+
+function formatParams(states, limit) {
     // create correct parameter format for passing to endpoint URL
     let stateString = "";
 
@@ -62,13 +70,29 @@ function formatParams(states, limit=10) {
     return paramString;
 }
 
+function bothFieldsComplete(states, maxResults) {
+    return states.length > 0 && maxResults != "";
+}
+
 function watchForm(){
     $("#submit-button").click(event => {
         event.preventDefault();
-        $('.js-error-message').addClass("hidden");
+            
         const states = $('#search').val();
+        const maxResults = $('#max-results').val();
         $('#search').val("");
-        processResults(states);
+        console.log(typeof states);
+        console.log(typeof maxResults);
+
+        if (bothFieldsComplete(states, maxResults)){
+            $('.js-error-message').addClass("hidden");
+            processResults(states, maxResults);
+        }
+        else {
+            $('.js-error-message').removeClass("hidden");
+            $('.js-error-message').text("Please make sure that you have completed both fields.")
+        }
+        
     });
 }
 

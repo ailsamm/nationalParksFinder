@@ -10,27 +10,29 @@ body {
     background-image: url("bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .hidden {
     display: none;
 }
 
+.instructions {
+    font-size: 20px;
+    margin: 2vh auto;
+}
+
 label {
     font-size: 30px;
 }
 
-::placeholder {
-    font-style: italic;
-}
-
-input[type="text"],
-input[type="submit"] {
+input[type="text"], {
     font-size: 20px;
     border-radius: 5px;
     padding: 5px 10px;
     margin: 20px;
 }
+
 
 .title {
     font-family: "Bungee Shade", Arial, Helvetica, sans-serif;
@@ -39,11 +41,20 @@ input[type="submit"] {
 }
 
 .selectize-input {
+    height: 5vh;
     width: 40vw;
 }
 
+.multi,
+.single {
+    margin-right: 2vw;
+}
+
 .single > .selectize-input  {
-    width: 20vw;
+    height: 5vh;
+    width: 10vw;
+    text-align: left;
+    vertical-align: center;
 }
 
 .single > .selectize-input *  {
@@ -54,17 +65,26 @@ option {
     font-size: 60px;
 }
 
-.search-box {
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 40vw;
     margin: 0 auto;
 }
 
 .park-link:link {
     color:rgb(12, 75, 4);
+    font-size: 25px;
 }
 
 .park-link:visited{
     color:rgb(12, 75, 4);
+}
+
+.search-results {
+    line-height: 2;
 }
 
 .result * {
@@ -78,11 +98,28 @@ option {
     width: 60%;
     background-color: rgba(191, 202, 180, 0.5);
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.park-info {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.park-image {
+    width:  175px;
+    height: 175px;
+    background-size: cover;
+    float: right;
 }
 
 .park-description {
     font-size: 18px;
     line-height: 1.4;
+    clear: left;
 }
 
 .park-phone {
@@ -114,3 +151,15 @@ option {
     background-color: pink;
 }
 
+@media only screen and (min-width: 700px) {
+    .search-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .park-info {
+        display: flex;
+        flex-direction: row;
+    }
+}
