@@ -36,7 +36,6 @@ function handleResults(parks) {
     }
 
     for (let i = 0; i < parks.length; i++){
-        console.log(parks[i]);
         $(".search-results").append(createResultHtml(parks[i]));
     }
 }
@@ -80,7 +79,7 @@ $(document).ready(function(){
         delimiter: ',',
         persist: false,
     });
-    
+
     $('#max-results').selectize({
         create: true,
         placeholder: "Max. results"
@@ -96,6 +95,5 @@ $(document).ready(function(){
         select[0].selectize.refreshOptions();
         })
 });
-
 
 $(watchForm);
