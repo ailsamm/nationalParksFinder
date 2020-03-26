@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Sen:700|Abril+Fatface|Bungee+Shade|Pacifico|Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:700|Sen:700|Bungee+Shade|Pacifico|Raleway&display=swap');
 
 * {
     box-sizing: border-box;
@@ -11,19 +11,23 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    margin: 60px;
 }
 
 .hidden {
     display: none;
 }
 
-.instructions {
-    font-size: 20px;
-    margin: 3vh auto;
+/* HEADER */
+header {
+    margin-top: 20vh;
 }
 
-label {
-    font-size: 30px;
+
+/* SEARCH AREA */
+.instructions {
+    font-size: 20px;
+    margin: 2vh auto 1vh auto;
 }
 
 input[type="text"] {
@@ -37,12 +41,24 @@ input[type="text"] {
     font-family: "Bungee Shade", Arial, Helvetica, sans-serif;
     font-size: 60px;
     padding: 25px;
+    margin-bottom: 0;
 }
 
-header {
-    margin-top: 20vh;
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+    margin: 0vh auto 5vh auto;
 }
 
+.error-message {
+    color: red; 
+}
+
+
+/* SELECTIZE */
 .selectize-input {
     height: 5vh;
     width: 40vw;
@@ -54,15 +70,14 @@ header {
     padding: 3px 30px;
 }
 
-.multi,
-.single {
+.multi {
     margin-right: 2vw;
+    margin-bottom: 1vh;
 }
 
 .single > .selectize-input  {
     height: 5vh;
     width: 10vw;
-    text-align: left;
     vertical-align: center;
 }
 
@@ -70,20 +85,10 @@ header {
     font-size: 15px;
 }
 
-option {
-    font-size: 60px;
-}
 
-.search-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40vw;
-    margin: 5vh auto;
-}
-
+/* RESULTS AREA */
 .park-link:link {
+    font-family: "Nanum Gothic";
     color:rgb(12, 75, 4);
     font-size: 25px;
 }
@@ -92,24 +97,6 @@ option {
     color:rgb(12, 75, 4);
 }
 
-.search-results {
-    line-height: 2;
-}
-
-.result * {
-    text-align: left;
-}
-
-.result {
-    margin: 20px auto;
-    padding: 20px;
-    text-align: left;
-    width: 60%;
-    background-color: rgba(191, 202, 180, 0.5);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-}
 
 .park-info {
     display: flex;
@@ -121,7 +108,7 @@ option {
 .park-image {
     width:  175px;
     height: 175px;
-    background-size: cover;
+    background-size: contain;
     float: right;
 }
 
@@ -143,12 +130,27 @@ option {
     color: black;
 }
 
+.result * {
+    text-align: left;
+}
+
+.result {
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+    background-color: rgba(191, 202, 180, 0.5);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
 .icon {
     margin-right: 5px;
 }
 
-.error-message {
-    color: red; 
+.park-state {
+    margin: 0;
 }
 
 .park-state-title {
@@ -161,14 +163,12 @@ option {
 }
 
 @media only screen and (min-width: 700px) {
-    .search-container {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
     .park-info {
         display: flex;
         flex-direction: row;
+    }
+
+    .result {
+        width: 60%;
     }
 }

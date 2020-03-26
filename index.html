@@ -17,8 +17,8 @@
         <h1 class="title">National Parks Finder</h1>
     </header>
     <main>
-        <h2 class="instructions">Please enter a state/states to see the National Parks located there:</h2>
         <div class="search-container">
+            <h2 class="instructions">Please enter a state/states to see the National Parks located there:</h2>
             <select name="search-options" id="search" multiple="multiple">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -72,10 +72,10 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
+            <h2 class="instructions">Results to display:</h2>
             <select name="max-results" id="max-results" class="select-css" required>
-                <option selected="selected"></option>
                 <option value=5>5</option>
-                <option value=10>10</option>
+                <option value=10 selected="selected">10</option>
                 <option value=15>15</option>
                 <option value=20>20</option>
                 <option value=25>25</option>
@@ -86,12 +86,12 @@
                 <option value=50>50</option>
                 <option value=100>All</option>
             </select>
+            <button type="submit" id="submit-button" class="btn icon-arrow-right">GO</button>
         </div>
-        <button type="submit" id="submit-button" class="btn icon-arrow-right">GO</button>
         <section class="search-results">
             <h3 class="js-error-message error-message hidden"></h3>
-            <!-- <article class="result">
-                <h3><a class="park-link" href="https://www.nps.gov/yose/index.htm" target="_blank">Yosemite National Park</a></h3>
+             <!-- <article class="result">
+                <h3><a class="park-link" href="https://www.nps.gov/yose/index.htm" target="_blank">YOSEMITE NATIONAL PARK</a></h3>
                 <h4 class="park-state"><span class="park-state-title">STATE(S):</span> CA, NV, AL</h4>
                 <section class="park-info" style="display:flex">
                     <p class="park-description">Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>

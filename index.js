@@ -81,8 +81,6 @@ function watchForm(){
         const states = $('#search').val();
         const maxResults = $('#max-results').val();
         $('#search').val("");
-        console.log(typeof states);
-        console.log(typeof maxResults);
 
         if (bothFieldsComplete(states, maxResults)){
             $('.js-error-message').addClass("hidden");
@@ -90,9 +88,8 @@ function watchForm(){
         }
         else {
             $('.js-error-message').removeClass("hidden");
-            $('.js-error-message').text("Please make sure that you have completed both fields.")
+            $('.js-error-message').text("Please add at least one state.")
         }
-        
     });
 }
 
@@ -106,7 +103,6 @@ $(document).ready(function(){
 
     $('#max-results').selectize({
         create: true,
-        placeholder: "Max. results"
     });
 
     $(".items").on("click", ".item", function() {
