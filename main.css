@@ -42,13 +42,21 @@ input[type="submit"] {
     width: 40vw;
 }
 
+.single > .selectize-input  {
+    width: 20vw;
+}
+
+.single > .selectize-input *  {
+    font-size: 15px;
+}
+
+option {
+    font-size: 60px;
+}
+
 .search-box {
     width: 40vw;
     margin: 0 auto;
-}
-
-.item {
-    background-color: pink;
 }
 
 .park-link:link {
@@ -78,7 +86,7 @@ input[type="submit"] {
 }
 
 .park-phone {
-    margin-left: 20px;
+    margin-left: 5vw;
 }
 
 .park-email,
@@ -88,3 +96,21 @@ input[type="submit"] {
     font-size: 18px;
     color: black;
 }
+
+.icon {
+    margin-right: 5px;
+}
+
+.error-message {
+    color: red; 
+}
+
+.park-state-title {
+    font-family: Sen, Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+}
+
+.max-results {
+    background-color: pink;
+}
+

@@ -71,13 +71,29 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
+            <select name="max-results" id="max-results" class="select-css" required>
+                <option selected="selected"></option>
+                <option value=5>5</option>
+                <option value=10>10</option>
+                <option value=15>15</option>
+                <option value=20>20</option>
+                <option value=25>25</option>
+                <option value=30>30</option>
+                <option value=35>35</option>
+                <option value=40>40</option>
+                <option value=45>45</option>
+                <option value=50>50</option>
+                <option value=100000>All</option>
+            </select>
             <input type="submit" id="submit-button" value="Go"></input>
         </div>
         <section class="search-results">
+            <h3 class="js-error-message error-message hidden"></h3>
             <div class="result">
-                <h3><a class="park-link" href="https://www.nps.gov/yose/index.htm" target="_blank">Yosemite National Park, CA</a></h3>
+                <h3><a class="park-link" href="https://www.nps.gov/yose/index.htm" target="_blank">Yosemite National Park</a></h3>
+                <h4 class="park-state"><span class="park-state-title">STATE(S):</span> CA, NV, AL</h4>
                 <p class="park-description">Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>
-                <a class="park-email" href="mailto:ailsamm@outlook.co.uk">EMAIL</a><a class="park-phone" href="tel:7157159904">CALL</a>
+                <a class="park-email" href="mailto:ailsamm@outlook.co.uk"><i class="icon fas fa-at"></i>EMAIL</a><a class="park-phone" href="tel:7157159904"><i class="icon fas fa-phone"></i>CALL</a>
 </div>
             </div>
 
