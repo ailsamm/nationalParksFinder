@@ -19,20 +19,19 @@ body {
 
 .instructions {
     font-size: 20px;
-    margin: 2vh auto;
+    margin: 3vh auto;
 }
 
 label {
     font-size: 30px;
 }
 
-input[type="text"], {
+input[type="text"] {
     font-size: 20px;
     border-radius: 5px;
     padding: 5px 10px;
     margin: 20px;
 }
-
 
 .title {
     font-family: "Bungee Shade", Arial, Helvetica, sans-serif;
@@ -40,9 +39,19 @@ input[type="text"], {
     padding: 25px;
 }
 
+header {
+    margin-top: 20vh;
+}
+
 .selectize-input {
     height: 5vh;
     width: 40vw;
+}
+
+.selectize-control.multi .selectize-input [data-value]{ 
+    background: #146837;
+    font-size: 1.4em;
+    padding: 3px 30px;
 }
 
 .multi,
@@ -71,7 +80,7 @@ option {
     justify-content: center;
     align-items: center;
     width: 40vw;
-    margin: 0 auto;
+    margin: 5vh auto;
 }
 
 .park-link:link {
