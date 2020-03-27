@@ -23,6 +23,7 @@ function processResults(states, maxResults){
         })
         .then(responseJson => handleResults(responseJson.data))
         .catch(err => {
+            $('body').waitMe('hide');
             $('.js-error-message').removeClass("hidden");
             $('.js-error-message').text(`Something went wrong: ${err.message}. Please try again.`);
         });
@@ -51,6 +52,7 @@ function createResultHtml(park) {
             <p class="park-description"> ${park.description}</p>\
             <img class="park-image" src="${park.images[0].url}" alt="${park.images[0].alt}">\
         </section>\
+        <p><span class="park-title">ADDRESS: </span> ${park.address}</p>
         <section park-contact-info>\
             <a class="park-email" href="mailto:${park.contacts.emailAddresses[0].emailAddress}"><i class="icon fas fa-at"></i>EMAIL</a>\
             <a class="park-phone" href="tel:${park.contacts.phoneNumbers[0].phoneNumber}"><i class="icon fas fa-phone"></i>CALL</a>\
@@ -81,7 +83,6 @@ function watchForm(){
             
         const states = $('#search').val();
         const maxResults = $('#max-results').val();
-        $('#search').val("");
 
         if (bothFieldsComplete(states, maxResults)){
             $('.js-error-message').addClass("hidden");
@@ -125,37 +126,13 @@ $(watchForm);
 
 function run_waitMe(effect){
     $('body').waitMe({
-    
-    //none, rotateplane, stretch, orbit, roundBounce, win8, 
-    //win8_linear, ios, facebook, rotation, timer, pulse, 
-    //progressBar, bouncePulse or img
     effect: 'bounce',
-    
-    //place text under the effect (string).
-    text: 'Fetching results',
-    
-    //background for container (string).
+    text: 'fetching results...',
     bg: 'rgba(255,255,255,0.7)',
-    
-    //color for background animation and text (string).
     color: '#000',
-    
-    //max size
     maxSize: '',
-    
-    //wait time im ms to close
     waitTime: -1,
-    
-    //url to image
     source: '',
-    
-    //or 'horizontal'
     textPos: 'vertical',
-    
-    //font size
-    fontSize: '',
-    
-    // callback
-    
-    });
+    fontSize: '40px'});
 }

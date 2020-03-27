@@ -112,7 +112,7 @@ input[type="text"] {
 .park-image {
     width:  175px;
     height: 175px;
-    background-size: contain;
+    background-size: cover;
     float: right;
 }
 
@@ -157,7 +157,7 @@ input[type="text"] {
     margin: 0;
 }
 
-.park-state-title {
+.park-title {
     font-family: Sen, Arial, Helvetica, sans-serif;
     font-size: 1.1em;
 }
