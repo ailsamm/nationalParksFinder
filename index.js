@@ -45,6 +45,7 @@ function handleResults(parks) {
 }
 
 function createResultHtml(park) {
+    const address = park.addresses[0];
     return `<article class="result">\
         <h3><a class="park-link" href="${park.url}" target="_blank">${park.fullName}</a></h3>\
         <h4 class="park-state"><span class="park-state-title">STATE(S): </span>${park.states}</h4>\
@@ -52,7 +53,7 @@ function createResultHtml(park) {
             <p class="park-description"> ${park.description}</p>\
             <img class="park-image" src="${park.images[0].url}" alt="${park.images[0].alt}">\
         </section>\
-        <p><span class="park-title">ADDRESS: </span> ${park.address}</p>
+        <p><span class="park-title">ADDRESS: </span> ${address.line1}, ${address.city}, ${address.stateCode}. ${address.postalCode}.</p>
         <section park-contact-info>\
             <a class="park-email" href="mailto:${park.contacts.emailAddresses[0].emailAddress}"><i class="icon fas fa-at"></i>EMAIL</a>\
             <a class="park-phone" href="tel:${park.contacts.phoneNumbers[0].phoneNumber}"><i class="icon fas fa-phone"></i>CALL</a>\
