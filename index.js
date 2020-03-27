@@ -7,7 +7,7 @@ const apiKey = 'rOSgoEBaYhbpTlSU80U74n6e3eTdZDPAO6p39MlA';
 function processResults(states, maxResults){
 
     const stateString = formatParams(states, maxResults);
-    const searchUrl = url + stateString;
+    const searchUrl = urlPrefix + url + stateString;
     console.log(searchUrl); 
 
     fetch(searchUrl, {
@@ -30,6 +30,7 @@ function processResults(states, maxResults){
 
 function handleResults(parks) {
     $(".search-results").empty();
+    $('body').waitMe('hide');
 
     if (parks.length === 0){
         $('.js-error-message').removeClass("hidden");
@@ -84,6 +85,7 @@ function watchForm(){
 
         if (bothFieldsComplete(states, maxResults)){
             $('.js-error-message').addClass("hidden");
+            run_waitMe("bounce");
             processResults(states, maxResults);
         }
         else {
@@ -91,7 +93,7 @@ function watchForm(){
             $('.js-error-message').text("Please add at least one state.")
         }
     });
-}
+}    
 
 $(document).ready(function(){
     $('#search').selectize({
@@ -117,3 +119,43 @@ $(document).ready(function(){
 });
 
 $(watchForm);
+
+
+
+
+function run_waitMe(effect){
+    $('body').waitMe({
+    
+    //none, rotateplane, stretch, orbit, roundBounce, win8, 
+    //win8_linear, ios, facebook, rotation, timer, pulse, 
+    //progressBar, bouncePulse or img
+    effect: 'bounce',
+    
+    //place text under the effect (string).
+    text: 'Fetching results',
+    
+    //background for container (string).
+    bg: 'rgba(255,255,255,0.7)',
+    
+    //color for background animation and text (string).
+    color: '#000',
+    
+    //max size
+    maxSize: '',
+    
+    //wait time im ms to close
+    waitTime: -1,
+    
+    //url to image
+    source: '',
+    
+    //or 'horizontal'
+    textPos: 'vertical',
+    
+    //font size
+    fontSize: '',
+    
+    // callback
+    
+    });
+}
