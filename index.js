@@ -7,7 +7,7 @@ const apiKey = 'rOSgoEBaYhbpTlSU80U74n6e3eTdZDPAO6p39MlA';
 function processResults(states, maxResults){
 
     const stateString = formatParams(states, maxResults);
-    const searchUrl = urlPrefix + url + stateString;
+    const searchUrl = url + stateString;
     console.log(searchUrl); 
 
     fetch(searchUrl, {
